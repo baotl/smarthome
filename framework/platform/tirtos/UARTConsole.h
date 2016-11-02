@@ -49,6 +49,10 @@ extern "C"
 #include <xdc/std.h>
 #include <stdio.h>
 
+#include <stdint.h>
+#include <stdbool.h>
+
+
 /* TI-RTOS Header files */
 #include <ti/drivers/UART.h>
 

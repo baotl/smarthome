@@ -101,7 +101,7 @@ sem_t *sem_open(const char *name, int oflag)
 		sem = SEM_FAILED;
 
 		// set errno
-		errno = ENOMEM;
+		errno = 12;
 	}
 
 	return sem;
@@ -122,7 +122,7 @@ int sem_close(sem_t *sem)
 	else
 	{
 		// set errno
-		errno = EINVAL;
+		errno = 22;
 	}
 
 	return ret;
@@ -146,7 +146,7 @@ int sem_init(sem_t *sem, int pshared, unsigned int value)
 		ret = -1;
 
 		// set errno
-		errno = ENOMEM;
+		errno = 12;
 	}
 
 	return ret;
@@ -167,7 +167,7 @@ int sem_destroy(sem_t *sem)
 	else
 	{
 		// set errno
-		errno = EINVAL;
+		errno = 22;
 	}
 
 	return ret;
@@ -206,7 +206,7 @@ int sem_post(sem_t * sem)
 	else
 	{
 		// set errno
-		errno = EINVAL;
+		errno = 22;
 	}
 
 	return ret;
@@ -233,7 +233,7 @@ static int sem_pend(sem_t * sem, UInt timeout)
 	else
 	{
 		// set errno
-		errno = EINVAL;
+		errno = 22;
 	}
 
 	//consolePrint("Semaphore_pend--: error\n");

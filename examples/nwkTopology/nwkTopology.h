@@ -44,8 +44,8 @@ extern "C"
 {
 #endif
 
-int appInit(void);
-void appProcess(void *argument);
+uint32_t appInit(void);
+void* appProcess(void *argument);
 void appInitQ(void);
 
 #ifdef __cplusplus

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, Texas Instruments Incorporated
+ * Copyright (c) 2015, Texas Instruments Incorporated
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,171 +30,144 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /** ============================================================================
- *  @file       EK_TM4C1294XL.h
+ *  @file       EK_TM4C123GXL.h
  *
- *  @brief      EK_TM4C1294XL Board Specific APIs
+ *  @brief      EK_TM4C123GXL Board Specific APIs
  *
- *  The EK_TM4C1294XL header file should be included in an application as follows:
+ *  The EK_TM4C123GXL header file should be included in an application as
+ *  follows:
  *  @code
- *  #include <EK_TM4C1294XL.h>
+ *  #include <EK_TM4C123GXL.h>
  *  @endcode
  *
  *  ============================================================================
  */
-
-#ifndef __EK_TM4C1294XL_H
-#define __EK_TM4C1294XL_H
+#ifndef __EK_TM4C123GXL_H
+#define __EK_TM4C123GXL_H
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-#include <ti/drivers/GPIO.h>
-
-/* LEDs on EK_TM4C1294XL are active high. */
-#define EK_TM4C1294XL_LED_OFF ( 0)
-#define EK_TM4C1294XL_LED_ON  (~0)
-
-/* GPIO_Callbacks structure for GPIO interrupts */
-extern const GPIO_Callbacks EK_TM4C1294XL_gpioPortJCallbacks;
+/* LEDs on EK_TM4C123GXL are active high. */
+#define EK_TM4C123GXL_LED_OFF (0)
+#define EK_TM4C123GXL_LED_ON  (1)
 
 /*!
- *  @def    EK_TM4C1294XL_EMACName
- *  @brief  Enum of EMAC names on the EK_TM4C1294XL dev board
+ *  @def    EK_TM4C123GXL_GPIOName
+ *  @brief  Enum of GPIO names on the EK_TM4C123GXL dev board
  */
-typedef enum EK_TM4C1294XL_EMACName
-{
-	EK_TM4C1294XL_EMAC0 = 0,
+typedef enum EK_TM4C123GXL_GPIOName {
+    EK_TM4C123GXL_SW1 = 0,
+    EK_TM4C123GXL_SW2,
+    EK_TM4C123GXL_LED_RED,
+    EK_TM4C123GXL_LED_BLUE,
+    EK_TM4C123GXL_LED_GREEN,
 
-	EK_TM4C1294XL_EMACCOUNT
-} EK_TM4C1294XL_EMACName;
+    EK_TM4C123GXL_GPIOCOUNT
+} EK_TM4C123GXL_GPIOName;
 
 /*!
- *  @def    EK_TM4C1294XL_GPIOName
- *  @brief  Enum of LED names on the EK_TM4C1294XL dev board
+ *  @def    EK_TM4C123GXL_I2CName
+ *  @brief  Enum of I2C names on the EK_TM4C123GXL dev board
  */
-typedef enum EK_TM4C1294XL_GPIOName
-{
-	EK_TM4C1294XL_D1 = 0,
-	EK_TM4C1294XL_D2,
-	EK_TM4C1294XL_USR_SW1,
-	EK_TM4C1294XL_USR_SW2,
+typedef enum EK_TM4C123GXL_I2CName {
+    EK_TM4C123GXL_I2C0 = 0,
+    EK_TM4C123GXL_I2C3,
 
-	EK_TM4C1294XL_GPIOCOUNT
-} EK_TM4C1294XL_GPIOName;
+    EK_TM4C123GXL_I2CCOUNT
+} EK_TM4C123GXL_I2CName;
 
 /*!
- *  @def    EK_TM4C1294XL_I2CName
- *  @brief  Enum of I2C names on the EK_TM4C1294XL dev board
+ *  @def    EK_TM4C123GXL_PWMName
+ *  @brief  Enum of PWM names on the EK_TM4C123GXL dev board
  */
-typedef enum EK_TM4C1294XL_I2CName
-{
-	EK_TM4C1294XL_I2C0 = 0,
-	EK_TM4C1294XL_I2C2,
-	EK_TM4C1294XL_I2C7,
-	EK_TM4C1294XL_I2C8,
+typedef enum EK_TM4C123GXL_PWMName {
+    EK_TM4C123GXL_PWM6 = 0,
+    EK_TM4C123GXL_PWM7,
 
-	EK_TM4C1294XL_I2CCOUNT
-} EEK_TM4C1294XL_I2CName;
+    EK_TM4C123GXL_PWMCOUNT
+} EK_TM4C123GXL_PWMName;
 
 /*!
- *  @def    EK_TM4C1294XL_SDSPIName
- *  @brief  Enum of SDSPI names on the EK_TM4C1294XL dev board
+ *  @def    EK_TM4C123GXL_SDSPIName
+ *  @brief  Enum of SDSPI names on the EK_TM4C123GXL dev board
  */
-typedef enum EK_TM4C1294XL_SDSPIName
-{
-	EK_TM4C1294XL_SDSPI0 = 0, EK_TM4C1294XL_SDSPI1,
+typedef enum EK_TM4C123GXL_SDSPIName {
+    EK_TM4C123GXL_SDSPI0 = 0,
 
-	EK_TM4C1294XL_SDSPICOUNT
-} EK_TM4C1294XL_SDSPIName;
+    EK_TM4C123GXL_SDSPICOUNT
+} EK_TM4C123GXL_SDSPIName;
 
 /*!
- *  @def    EK_TM4C1294XL_SPIName
- *  @brief  Enum of SPI names on the EK_TM4C1294XL dev board
+ *  @def    EK_TM4C123GXL_SPIName
+ *  @brief  Enum of SPI names on the EK_TM4C123GXL dev board
  */
-typedef enum EK_TM4C1294XL_SPIName
-{
-	EK_TM4C1294XL_SPI2 = 0, EK_TM4C1294XL_SPI3,
+typedef enum EK_TM4C123GXL_SPIName {
+    EK_TM4C123GXL_SPI0 = 0,
+    EK_TM4C123GXL_SPI2,
+    EK_TM4C123GXL_SPI3,
 
-	EK_TM4C1294XL_SPICOUNT
-} EK_TM4C1294XL_SPIName;
+    EK_TM4C123GXL_SPICOUNT
+} EK_TM4C123GXL_SPIName;
 
 /*!
- *  @def    EK_TM4C1294XL_UARTName
- *  @brief  Enum of UARTs on the EK_TM4C1294XL dev board
+ *  @def    EK_TM4C123GXL_UARTName
+ *  @brief  Enum of UARTs on the EK_TM4C123GXL dev board
  */
-typedef enum EK_TM4C1294XL_UARTName
-{
-	EK_TM4C1294XL_UART0 = 0,
-	EK_TM4C1294XL_UART2,
-	EK_TM4C1294XL_UART6,
-	EK_TM4C1294XL_UART7,
-	EK_TM4C1294XL_UART4,
+typedef enum EK_TM4C123GXL_UARTName {
+    EK_TM4C123GXL_UART0 = 0,
 
-	EK_TM4C1294XL_UARTCOUNT
-} EK_TM4C1294XL_UARTName;
+    EK_TM4C123GXL_UARTCOUNT
+} EK_TM4C123GXL_UARTName;
 
 /*!
- *  @def    EK_TM4C1294XL_USBMode
- *  @brief  Enum of USB setup function on the EK_TM4C1294XL dev board
+ *  @def    EK_TM4C123GXL_USBMode
+ *  @brief  Enum of USB setup function on the EK_TM4C123GXL dev board
  */
-typedef enum EK_TM4C1294XL_USBMode
-{
-	EK_TM4C1294XL_USBDEVICE, EK_TM4C1294XL_USBHOST
-} EK_TM4C1294XL_USBMode;
+typedef enum EK_TM4C123GXL_USBMode {
+    EK_TM4C123GXL_USBDEVICE,
+    EK_TM4C123GXL_USBHOST
+} EK_TM4C123GXL_USBMode;
 
 /*!
- *  @def    EK_TM4C1294XL_USBMSCHFatFsName
- *  @brief  Enum of USBMSCHFatFs names on the EK_TM4C1294XL dev board
+ *  @def    EK_TM4C123GXL_WatchdogName
+ *  @brief  Enum of Watchdogs on the EK_TM4C123GXL dev board
  */
-typedef enum EK_TM4C1294XL_USBMSCHFatFsName
-{
-	EK_TM4C1294XL_USBMSCHFatFs0 = 0,
+typedef enum EK_TM4C123GXL_WatchdogName {
+    EK_TM4C123GXL_WATCHDOG0 = 0,
 
-	EK_TM4C1294XL_USBMSCHFatFsCOUNT
-} EK_TM4C1294XL_USBMSCHFatFsName;
-
-/*
- *  @def    EK_TM4C1294XL_WatchdogName
- *  @brief  Enum of Watchdogs on the EK_TM4C1294XL dev board
- */
-typedef enum EK_TM4C1294XL_WatchdogName
-{
-	EK_TM4C1294XL_WATCHDOG0 = 0,
-
-	EK_TM4C1294XL_WATCHDOGCOUNT
-} EK_TM4C1294XL_WatchdogName;
+    EK_TM4C123GXL_WATCHDOGCOUNT
+} EK_TM4C123GXL_WatchdogName;
 
 /*!
- *  @def    EK_TM4C1294XL_WiFiName
- *  @brief  Enum of WiFi names on the EK_TM4C1294XL dev board
+ *  @def    EK_TM4C123GXL_WiFiName
+ *  @brief  Enum of WiFi names on the EK_TM4C123GXL dev board
  */
-typedef enum EK_TM4C1294XL_WiFiName
-{
-	EK_TM4C1294XL_WIFI = 0,
+typedef enum EK_TM4C123GXL_WiFiName {
+    EK_TM4C123GXL_WIFI = 0,
 
-	EK_TM4C1294XL_WIFICOUNT
-} EK_TM4C1294XL_WiFiName;
+    EK_TM4C123GXL_WIFICOUNT
+} EK_TM4C123GXL_WiFiName;
+
+/*!
+ *  @brief  Initialize board specific DMA settings
+ *
+ *  This function creates a hwi in case the DMA controller creates an error
+ *  interrrupt, enables the DMA and supplies it with a uDMA control table.
+ */
+extern void EK_TM4C123GXL_initDMA(void);
 
 /*!
  *  @brief  Initialize the general board specific settings
  *
- *  This function initializes the general board specific settings. This include
+ *  This function initializes the general board specific settings.
+ *  This includes:
+ *     - Flash wait states based on the process
+ *     - Disable clock source to watchdog module
  *     - Enable clock sources for peripherals
  */
-extern void EK_TM4C1294XL_initGeneral(void);
-
-/*!
- *  @brief Initialize board specific EMAC settings
- *
- *  This function initializes the board specific EMAC settings and
- *  then calls the EMAC_init API to initialize the EMAC module.
- *
- *  The EMAC address is programmed as part of this call.
- *
- */
-extern void EK_TM4C1294XL_initEMAC(void);
+extern void EK_TM4C123GXL_initGeneral(void);
 
 /*!
  *  @brief  Initialize board specific GPIO settings
@@ -202,10 +175,10 @@ extern void EK_TM4C1294XL_initEMAC(void);
  *  This function initializes the board specific GPIO settings and
  *  then calls the GPIO_init API to initialize the GPIO module.
  *
- *  The GPIOs controlled by the GPIO module are determined by the GPIO_config
+ *  The GPIOs controlled by the GPIO module are determined by the GPIO_PinConfig
  *  variable.
  */
-extern void EK_TM4C1294XL_initGPIO(void);
+extern void EK_TM4C123GXL_initGPIO(void);
 
 /*!
  *  @brief  Initialize board specific I2C settings
@@ -216,7 +189,18 @@ extern void EK_TM4C1294XL_initGPIO(void);
  *  The I2C peripherals controlled by the I2C module are determined by the
  *  I2C_config variable.
  */
-extern void EK_TM4C1294XL_initI2C(void);
+extern void EK_TM4C123GXL_initI2C(void);
+
+/*!
+ *  @brief  Initialize board specific PWM settings
+ *
+ *  This function initializes the board specific PWM settings and then calls
+ *  the PWM_init API to initialize the PWM module.
+ *
+ *  The PWM peripherals controlled by the PWM module are determined by the
+ *  PWM_config variable.
+ */
+extern void EK_TM4C123GXL_initPWM(void);
 
 /*!
  *  @brief  Initialize board specific SDSPI settings
@@ -227,7 +211,7 @@ extern void EK_TM4C1294XL_initI2C(void);
  *  The SDSPI peripherals controlled by the SDSPI module are determined by the
  *  SDSPI_config variable.
  */
-extern void EK_TM4C1294XL_initSDSPI(void);
+extern void EK_TM4C123GXL_initSDSPI(void);
 
 /*!
  *  @brief  Initialize board specific SPI settings
@@ -238,7 +222,7 @@ extern void EK_TM4C1294XL_initSDSPI(void);
  *  The SPI peripherals controlled by the SPI module are determined by the
  *  SPI_config variable.
  */
-extern void EK_TM4C1294XL_initSPI(void);
+extern void EK_TM4C123GXL_initSPI(void);
 
 /*!
  *  @brief  Initialize board specific UART settings
@@ -249,7 +233,7 @@ extern void EK_TM4C1294XL_initSPI(void);
  *  The UART peripherals controlled by the UART module are determined by the
  *  UART_config variable.
  */
-extern void EK_TM4C1294XL_initUART(void);
+extern void EK_TM4C123GXL_initUART(void);
 
 /*!
  *  @brief  Initialize board specific USB settings
@@ -259,18 +243,7 @@ extern void EK_TM4C1294XL_initUART(void);
  *
  *  @param      usbMode    USB mode of operation
  */
-extern void EK_TM4C1294XL_initUSB(EK_TM4C1294XL_USBMode usbMode);
-
-/*!
- *  @brief  Initialize board specific USBMSCHFatFs settings
- *
- *  This function initializes the board specific USBMSCHFatFs settings and then
- *  calls the USBMSCHFatFs_init API to initialize the USBMSCHFatFs module.
- *
- *  The USBMSCHFatFs peripherals controlled by the USBMSCHFatFs module are
- *  determined by the USBMSCHFatFs_config variable.
- */
-extern void EK_TM4C1294XL_initUSBMSCHFatFs(void);
+extern void EK_TM4C123GXL_initUSB(EK_TM4C123GXL_USBMode usbMode);
 
 /*!
  *  @brief  Initialize board specific Watchdog settings
@@ -281,7 +254,7 @@ extern void EK_TM4C1294XL_initUSBMSCHFatFs(void);
  *  The Watchdog peripherals controlled by the Watchdog module are determined
  *  by the Watchdog_config variable.
  */
-extern void EK_TM4C1294XL_initWatchdog(void);
+extern void EK_TM4C123GXL_initWatchdog(void);
 
 /*!
  *  @brief  Initialize board specific WiFi settings
@@ -291,11 +264,14 @@ extern void EK_TM4C1294XL_initWatchdog(void);
  *
  *  The hardware resources controlled by the WiFi module are determined by the
  *  WiFi_config variable.
+ *
+ *  A SimpleLink CC3100 device or module is required and must be connected to
+ *  use the WiFi driver.
  */
-extern void EK_TM4C1294XL_initWiFi(void);
+extern void EK_TM4C123GXL_initWiFi(void);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __EK_TM4C1294XL_H */
+#endif /* __EK_TM4C123GXL_H */

@@ -114,7 +114,7 @@ int32_t rpcTransportOpen(char *_devicePath, uint32_t port)
 		uartParams.parityType = UART_PAR_NONE;
 
 		// init UART driver
-		uart = UART_open(EK_TM4C1294XL_UART4, &uartParams);
+		uart = UART_open(EK_TM4C123GXL_UART0, &uartParams);
 		if (uart != NULL)
 		{
 			// return success
